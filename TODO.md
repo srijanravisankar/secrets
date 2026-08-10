@@ -1,0 +1,6 @@
+- [ ] Initialize backend folder: `mkdir backend; cd backend`
+- [ ] Initialize virtual environment and activate: `python -m venv .venv; .\.venv\Scripts\activate`
+- [ ] Install dependencies: `pip install fastapi uvicorn python-dotenv bcrypt cryptography pyjwt sqlalchemy alembic "psycopg[binary]" pytest`
+- [ ] Commit: `git commit -m "chore(deps): install fastapi and backend package ecosystem"`
+- [ ] Create a new FastAPI app instance in main.py and create a test endpoint `health`
+- [ ] 
