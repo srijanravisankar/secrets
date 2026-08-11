@@ -5,3 +5,6 @@
 - [ ] Commit: `git commit -m "chore(deps): install fastapi and backend package ecosystem"`
 - [ ] Create a new FastAPI app instance in main.py and create a test endpoint `health`
 - [ ] Commit: `git commit -m "test(api): add health check route test test"`
+- [ ] Create a `Base` and `User` class in `models.py`
+- [ ] Create a database `engine` in `database.py` and add the `DATABASE_URL` in `.env`
+- [ ] Commit: `git commit -m "feat(db): create User model and add SQLAlchemy engine"`
