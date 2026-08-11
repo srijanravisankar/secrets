@@ -8,3 +8,7 @@
 - [ ] Create a `Base` and `User` class in `models.py`
 - [ ] Create a database `engine` in `database.py` and add the `DATABASE_URL` in `.env`
 - [ ] Commit: `git commit -m "feat(db): create User model and add SQLAlchemy engine"`
+- [ ] Initialize `alembic` in a folder `alembic`: `alembic init alembic`
+- [ ] Modify `target_metadata` and set `sqlalchemy.url` in `alembic/env.py` and `alembic.ini`
+- [ ] Add a new column `created_at` in `User` class, run `alembic revision --autogenerate` and `alembic upgrade head`
+- [ ] Commit: `git commit -m "chore(db): initialize alembic and test with created_at column"`
