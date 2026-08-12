@@ -23,18 +23,18 @@ class User(Base):
     )
 
 
-class SecretPage(Base):
-    __tablename__ = "secret_pages"
+class Secret(Base):
+    __tablename__ = "secrets"
 
     id: Mapped[uuid.UUID] = mapped_column(Uuid, primary_key=True, default=uuid.uuid4)
 
     owner_id: Mapped[int | None] = mapped_column(ForeignKey("users.id"), nullable=True)
 
-    secret_message_prompt: Mapped[str] = mapped_column(String)
+    secret_prompt: Mapped[str] = mapped_column(String)
 
-    secret_message_password_hash: Mapped[str] = mapped_column(String(60))
+    secret_password_hash: Mapped[str] = mapped_column(String(60))
 
-    secret_message_info_encrypted: Mapped[str] = mapped_column(Text)
+    secret_encrypted: Mapped[str] = mapped_column(Text)
 
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), server_default=func.now()
