@@ -12,3 +12,6 @@
 - [ ] Modify `target_metadata` and set `sqlalchemy.url` in `alembic/env.py` and `alembic.ini`
 - [ ] Add a new column `created_at` in `User` class, run `alembic revision --autogenerate` and `alembic upgrade head`
 - [ ] Commit: `git commit -m "chore(db): initialize alembic and test with created_at column"`
+- [ ] Add more columns to `User` model and create `SecretPage` model
+- [ ] Migrate changes to database: `alembic revision --autogenerate` and `alembic upgrade head`
+- [ ] Commit: `git commit -m "feat(db): add more columns to users table and create secret_page table"`
