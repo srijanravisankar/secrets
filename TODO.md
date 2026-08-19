@@ -2,16 +2,22 @@
 - [ ] Initialize backend folder: `mkdir backend; cd backend`
 - [ ] Initialize virtual environment and activate: `python -m venv .venv; .\.venv\Scripts\activate`
 - [ ] Install dependencies: `pip install fastapi uvicorn python-dotenv bcrypt cryptography pyjwt sqlalchemy alembic "psycopg[binary]" pytest`
-- [ ] Commit: `git commit -m "chore(deps): install fastapi and backend package ecosystem"`
+- [ ] Commit: `chore(deps): install fastapi and backend package ecosystem`
 - [ ] Create a new FastAPI app instance in main.py and create a test endpoint `health`
-- [ ] Commit: `git commit -m "test(api): add health check route test test"`
+- [ ] Commit: `test(api): add health check route test test`
 - [ ] Create a `Base` and `User` class in `models.py`
 - [ ] Create a database `engine` in `database.py` and add the `DATABASE_URL` in `.env`
-- [ ] Commit: `git commit -m "feat(db): create User model and add SQLAlchemy engine"`
+- [ ] Commit: `feat(db): create User model and add SQLAlchemy engine`
 - [ ] Initialize `alembic` in a folder `alembic`: `alembic init alembic`
 - [ ] Modify `target_metadata` and set `sqlalchemy.url` in `alembic/env.py` and `alembic.ini`
+- [ ] Add `render_as_batch=True` in `context.configure` in `alembic\env.py` to support sqlite alter commands
 - [ ] Add a new column `created_at` in `User` class, run `alembic revision --autogenerate` and `alembic upgrade head`
-- [ ] Commit: `git commit -m "chore(db): initialize alembic and test with created_at column"`
-- [ ] Add more columns to `User` model and create `SecretPage` model
+- [ ] Commit: `chore(db): initialize alembic and test with created_at column`
+- [ ] Create `base.py` with `Base`, `users.py` with `User` and `secrets.py` with `Secret` in `models.py` with `__init__.py`
+- [ ] Add more columns to `User` model and create `Secret` model
 - [ ] Migrate changes to database: `alembic revision --autogenerate` and `alembic upgrade head`
-- [ ] Commit: `git commit -m "feat(db): add more columns to users table and create secret_page table"`
+- [ ] Commit: `"feat(db): add more columns to users table and create secrets table"`
+- [ ] Add schemas for validation in for `schemas\secrets.py`: `SecretContent`, `SecretCreateRequest`, `SecretCreateResponse`, `SecretPromptResponse`, `SecretReadRequest`, `SecretReadResponse`
+- [ ] Commit: `feat(api): add schemas for validating secrets req and res`
+- [ ] Add `routers` and `services` for `secrets` with `create_secret_page`, `get_secret_page_prompt` and `unlock_secret_page` endpoints
+- [ ] Commit: `refactor(api): move secret creation logic into a service layer`

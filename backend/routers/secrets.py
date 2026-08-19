@@ -5,7 +5,7 @@ from database import get_db
 from fastapi import APIRouter, Depends, status
 from models import Secret
 from schemas.secrets import SecretCreateRequest, SecretCreateResponse
-from security.passwords import hash_password
+from services.secrets import create_secret
 from sqlalchemy.orm import Session
 
 router = APIRouter(prefix="/secrets")
@@ -16,23 +16,8 @@ DbSession = Annotated[Session, Depends(get_db)]
 @router.post(
     "", status_code=status.HTTP_201_CREATED, response_model=SecretCreateResponse
 )
-def create_secret_page(secret: SecretCreateRequest, db: DbSession):
-    new_secret = Secret(
-        secret_prompt=secret.secret_prompt,
-        secret_password_hash=hash_password(secret.secret_password),
-        # secret_encrypted=encrypt_secret(
-        #     secret.secret_message,
-        #     secret.font_style,
-        #     secret.gif_url,
-        #     secret.background_colour,
-        # ),
-    )
-
-    db.add(new_secret)
-    db.commit()
-    db.refresh(new_secret)
-
-    return new_secret
+def create_secret_page(db: DbSession, secret: SecretCreateRequest) -> Secret:
+    return create_secret(db, secret)
 
 
 @router.get("/{id}")

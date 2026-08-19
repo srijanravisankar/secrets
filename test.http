@@ -1,1 +1,15 @@
+### Health
 GET http://127.0.0.1:8000/health
+
+### Create a secret page
+POST http://127.0.0.1:8000/secrets
+Content-Type: application/json
+
+{
+    "secret_message": "meet me at noon by the fountain",
+    "font_style": "serif",
+    "gif_url": "https://media.giphy.com/media/abc123/giphy.gif",
+    "background_colour": "#123456",
+    "secret_prompt": "What was our first dog's name?",
+    "secret_password": "correct-horse"
+}
