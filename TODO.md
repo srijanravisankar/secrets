@@ -20,4 +20,4 @@
 - [ ] Add schemas for validation in for `schemas\secrets.py`: `SecretContent`, `SecretCreateRequest`, `SecretCreateResponse`, `SecretPromptResponse`, `SecretReadRequest`, `SecretReadResponse`
 - [ ] Commit: `feat(api): add schemas for validating secrets req and res`
 - [ ] Add `routers` and `services` for `secrets` with `create_secret_page`, `get_secret_page_prompt` and `unlock_secret_page` endpoints
-- [ ] Commit: `refactor(api): move secret creation logic into a service layer`
+- [ ] Commit: `feat(api): add secret creation router endpoint and its logic in service.py`

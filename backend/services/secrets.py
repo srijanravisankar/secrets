@@ -6,7 +6,7 @@ from sqlalchemy.orm import Session
 
 
 def create_secret(db: Session, secret: SecretCreateRequest) -> Secret:
-    secret_content = SecretContent.model_validate(secret.model_dump())
+    secret_content = SecretContent.model_validate(secret).model_dump_json()
 
     new_secret = Secret(
         secret_prompt=secret.secret_prompt,
