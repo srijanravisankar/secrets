@@ -40,6 +40,7 @@
 - auth: User registration, login, JWT verification, or hashing
 - api: Endpoint routing and HTTP handling
 - users: Managing user profiles, roles, or database entries
+- security: Data protection and access controls
 
 ### Examples:
 - Example 1:

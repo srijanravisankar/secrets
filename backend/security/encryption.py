@@ -9,15 +9,15 @@ SECRET_ENCRYPTION_KEY = os.environ["SECRET_ENCRYPTION_KEY"]
 fernet = Fernet(SECRET_ENCRYPTION_KEY)
 
 
-def encrypt_secret(secret_content: str) -> str:
-    secret_content_bytes = secret_content.encode()
-    encrypted_secret_content = fernet.encrypt(secret_content_bytes)
-    encrypted_secret = encrypted_secret_content.decode()
-    return encrypted_secret
+def encrypt(content: str) -> str:
+    content_bytes = content.encode()
+    encrypted_content_bytes = fernet.encrypt(content_bytes)
+    encrypted_content = encrypted_content_bytes.decode()
+    return encrypted_content
 
 
-def decrypt_secret(encrypted_secret: str) -> str:
-    encrypted_secret_bytes = encrypted_secret.encode()
-    secret_content_encrypted = fernet.decrypt(encrypted_secret_bytes)
-    secret_content = secret_content_encrypted.decode()
-    return secret_content
+def decrypt(encrypted_content: str) -> str:
+    encrypted_content_bytes = encrypted_content.encode()
+    content_bytes = fernet.decrypt(encrypted_content_bytes)
+    content = content_bytes.decode()
+    return content

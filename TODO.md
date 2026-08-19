@@ -21,3 +21,5 @@
 - [ ] Commit: `feat(api): add schemas for validating secrets req and res`
 - [ ] Add `routers` and `services` for `secrets` with `create_secret_page`, `get_secret_page_prompt` and `unlock_secret_page` endpoints
 - [ ] Commit: `feat(api): add secret creation router endpoint and its logic in service.py`
+- [ ] Use `fernet` in `cryptography` to implement the `encrypt` and `decrypt` functions
+- [ ] Commit: `feat(security): implement secret encryption and decryption using fernet`
