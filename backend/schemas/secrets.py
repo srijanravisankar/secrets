@@ -1,7 +1,6 @@
 import uuid
 
 from pydantic import BaseModel, ConfigDict, Field, HttpUrl
-from pydantic_extra_types.color import Color
 from schemas.font import FontStyle
 
 
@@ -13,7 +12,7 @@ class SecretContent(SecretBaseModel):
     secret_message: str = Field(min_length=1, max_length=1000)
     font_style: FontStyle
     gif_url: HttpUrl
-    background_colour: Color
+    background_colour: str = Field(pattern=r"#[0-9a-fA-F]")
 
 
 class SecretCreateRequest(SecretContent):
