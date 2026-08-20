@@ -18,7 +18,7 @@ class SecretContent(SecretBaseModel):
 
 class SecretCreateRequest(SecretContent):
     secret_prompt: str = Field(min_length=1, max_length=100)
-    secret_password: str = Field(min_length=8, max_length=72)
+    secret_password: str = Field(min_length=3, max_length=72)
 
 
 class SecretCreateResponse(SecretBaseModel):

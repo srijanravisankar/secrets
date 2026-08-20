@@ -8,7 +8,7 @@ Content-Type: application/json
 {
     "secret_message": "meet me at noon by the fountain",
     "font_style": "serif",
-    "gif_url": "https://media.giphy.com/media/abc123/giphy.gif",
+    "gif_url": "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExam8xdWhpbW5qMThtamt1bTNpeDgwcjRoNXFhMDIxMDE3dHRnaXdwdSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/f5ehe7RcZPIuFllGOi/giphy.gif",
     "background_colour": "#123456",
     "secret_prompt": "What was our first dog's name?",
     "secret_password": "correct-horse"

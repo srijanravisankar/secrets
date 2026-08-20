@@ -23,3 +23,7 @@
 - [ ] Commit: `feat(api): add secret creation router endpoint and its logic in service.py`
 - [ ] Use `fernet` in `cryptography` to implement the `encrypt` and `decrypt` functions
 - [ ] Commit: `feat(security): implement secret encryption and decryption using fernet`
+- [ ] Add endpoint to get secret prompts for users
+- [ ] Commit: `feat(api): add get secret prompt endpoint`
+- [ ] Add endpoint to unlock the secret and its corresponding service with error handling for wrong passwords
+- [ ] Commit: `feat(api): add unlock secret endpoint with password verification`

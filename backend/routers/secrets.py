@@ -45,6 +45,7 @@ def get_secret_prompt(db: DbSession, id: uuid.UUID) -> Secret:
 def unlock_secret(
     db: DbSession, id: uuid.UUID, request: SecretReadRequest
 ) -> SecretContent:
+    # schema returned when the row is not directly returned, else User model
     try:
         secret_unlocked = secrets.unlock_secret(db, id, request.secret_password)
     except InvalidSecretPasswordError:
