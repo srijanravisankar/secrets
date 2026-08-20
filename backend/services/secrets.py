@@ -8,12 +8,12 @@ from sqlalchemy.orm import Session
 
 
 def create_secret(db: Session, secret: SecretCreateRequest) -> Secret:
-    secret_content = SecretContent.model_validate(secret).model_dump_json()
+    secret_content = SecretContent.model_validate(secret.model_dump())
 
     new_secret = Secret(
         secret_prompt=secret.secret_prompt,
         secret_password_hash=hash_password(secret.secret_password),
-        secret_encrypted=encrypt(secret_content),
+        secret_encrypted=encrypt(secret_content.model_dump_json()),
     )
 
     db.add(new_secret)
@@ -23,5 +23,6 @@ def create_secret(db: Session, secret: SecretCreateRequest) -> Secret:
     return new_secret
 
 
-def get_secret(db: Session, id: uuid.UUID):
-    pass
+def get_secret(db: Session, id: uuid.UUID) -> Secret | None:
+    secret = db.get(Secret, id)
+    return secret
