@@ -1,0 +1,2 @@
+class InvalidSecretPasswordError(Exception):
+    pass
