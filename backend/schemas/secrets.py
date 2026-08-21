@@ -1,21 +1,11 @@
 import uuid
 
-from pydantic import BaseModel, ConfigDict, Field, HttpUrl
-from pydantic.alias_generators import to_camel
+from pydantic import Field, HttpUrl
+from schemas.base import BaseSchema
 from schemas.font import FontStyle
 
 
-class SecretBaseModel(BaseModel):
-    model_config = ConfigDict(
-        from_attributes=True,
-        alias_generator=to_camel,
-        validate_by_name=True,
-        serialize_by_alias=True,
-        populate_by_name=True,
-    )
-
-
-class SecretContent(SecretBaseModel):
+class SecretContent(BaseSchema):
     secret_message: str = Field(min_length=1, max_length=1000)
     font_style: FontStyle
     gif_url: HttpUrl
@@ -27,15 +17,15 @@ class SecretCreateRequest(SecretContent):
     secret_password: str = Field(min_length=3, max_length=72)
 
 
-class SecretCreateResponse(SecretBaseModel):
+class SecretCreateResponse(BaseSchema):
     id: uuid.UUID
 
 
-class SecretPromptResponse(SecretBaseModel):
+class SecretPromptResponse(BaseSchema):
     secret_prompt: str
 
 
-class SecretReadRequest(SecretBaseModel):
+class SecretReadRequest(BaseSchema):
     secret_password: str
 
 

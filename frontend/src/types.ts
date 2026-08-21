@@ -1,15 +1,15 @@
 export type FontStyle = "serif" | "sans-serif" | "monospace";
 
 export interface SecretContent {
-  secret_message: string;
-  font_style: FontStyle;
-  gif_url: string;
-  background_colour: string;
+  secretMessage: string;
+  fontStyle: FontStyle;
+  gifUrl: string;
+  backgroundColour: string;
 }
 
 export interface SecretCreateRequest extends SecretContent {
-  secret_prompt: string;
-  secret_password: string;
+  secretPrompt: string;
+  secretPassword: string;
 }
 
 export interface SecretCreateResponse {
@@ -17,11 +17,11 @@ export interface SecretCreateResponse {
 }
 
 export interface SecretPromptResponse {
-  secret_prompt: string;
+  secretPrompt: string;
 }
 
 export interface SecretReadRequest {
-  secret_password: string;
+  secretPassword: string;
 }
 
 export type SecretReadResponse = SecretContent;
