@@ -12,7 +12,7 @@ class SecretContent(SecretBaseModel):
     secret_message: str = Field(min_length=1, max_length=1000)
     font_style: FontStyle
     gif_url: HttpUrl
-    background_colour: str = Field(pattern=r"#[0-9a-fA-F]")
+    background_colour: str = Field(pattern=r"^#[0-9a-fA-F]{6}$")
 
 
 class SecretCreateRequest(SecretContent):

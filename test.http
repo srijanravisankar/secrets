@@ -13,3 +13,6 @@ Content-Type: application/json
     "secret_prompt": "What was our first dog's name?",
     "secret_password": "correct-horse"
 }
+
+### Search Giphy gifs
+GET http://127.0.0.1:8000/gifs?q=cats
