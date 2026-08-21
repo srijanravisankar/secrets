@@ -27,3 +27,14 @@
 - [ ] Commit: `feat(api): add get secret prompt endpoint`
 - [ ] Add endpoint to unlock the secret and its corresponding service with error handling for wrong passwords
 - [ ] Commit: `feat(api): add unlock secret endpoint with password verification`
+
+Frontend:
+
+- [ ] Scaffold the project: `npm create vite@latest frontend -- --template react-ts
+cd frontend
+npm install
+npm install @tanstack/react-query react-router-dom
+npm install -D tailwindcss @tailwindcss/vite`
+- [ ] Add `import tailwindcss from '@tailwindcss/vite'` in `vite.config.ts` and `@import "tailwindcss";` in `src/index.css`
+- [ ] Delete boilerplate code in `src/App.css`, `src/index.css` and `src/App.tsx`
+- [ ] Create required folders and files in `src`: `api`, `hooks`, `components`, `pages`, `types.ts`
