@@ -1,11 +1,18 @@
 import uuid
 
 from pydantic import BaseModel, ConfigDict, Field, HttpUrl
+from pydantic.alias_generators import to_camel
 from schemas.font import FontStyle
 
 
 class SecretBaseModel(BaseModel):
-    model_config = ConfigDict(from_attributes=True)
+    model_config = ConfigDict(
+        from_attributes=True,
+        alias_generator=to_camel,
+        validate_by_name=True,
+        serialize_by_alias=True,
+        populate_by_name=True,
+    )
 
 
 class SecretContent(SecretBaseModel):
