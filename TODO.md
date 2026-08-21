@@ -30,7 +30,7 @@
 
 Frontend:
 
-- [ ] Scaffold the project: `npm create vite@latest frontend -- --template react-ts
+- [ ] Scaffold the project: `npm create vite@latest frontend -- --template react
 cd frontend
 npm install
 npm install @tanstack/react-query react-router-dom
