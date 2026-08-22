@@ -2,6 +2,7 @@ import { useState } from "react";
 import Preview from "../components/Preview";
 import { useDebouncedValue } from "../hooks/useDebouncedValue";
 import { useGifSearch } from "../hooks/useGifSearch";
+import useCreateSecret from "../hooks/useCreateSecret";
 
 export default function CreatePage() {
   const [draft, setDraft] = useState({
@@ -13,10 +14,12 @@ export default function CreatePage() {
   });
 
   const debouncedMessage = useDebouncedValue(draft.secretMessage, 500);
-  const { data } = useGifSearch(debouncedMessage);
-  const gifUrls = data?.urls ?? [];
+  const { data: gifData } = useGifSearch(debouncedMessage);
+  const gifUrls = gifData?.urls ?? [];
   const [gifIndex, setGifIndex] = useState(0);
   const gifUrl = gifUrls[gifIndex % gifUrls.length] ?? "";
+
+  const { mutate, data, isPending, isError, error } = useCreateSecret();
 
   const updateDraft = (field, value) => {
     setDraft({ ...draft, [field]: value });
@@ -24,6 +27,7 @@ export default function CreatePage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    mutate({ ...draft, gifUrl });
   };
 
   return (
@@ -88,6 +92,17 @@ export default function CreatePage() {
 
         <button type="submit">Publish</button>
       </form>
+
+      {isPending && <p>Publishing...</p>}
+      {isError && <p>{error.message}</p>}
+      {data && (
+        <p>
+          Your Secret link:
+          <a
+            href={`/secret/${data.id}`}
+          >{`${window.location.origin}/secret/${data.id}`}</a>
+        </p>
+      )}
 
       <Preview {...draft} gifUrl={gifUrl} />
     </div>
