@@ -1,15 +1,22 @@
 import { useState } from "react";
 import Preview from "../components/Preview";
+import { useDebouncedValue } from "../hooks/useDebouncedValue";
+import { useGifSearch } from "../hooks/useGifSearch";
 
 export default function CreatePage() {
   const [draft, setDraft] = useState({
     secretMessage: "",
     fontStyle: "serif",
-    gifUrl: "",
     backgroundColour: "#ffffff",
     secretPrompt: "",
     secretPassword: "",
   });
+
+  const debouncedMessage = useDebouncedValue(draft.secretMessage, 500);
+  const { data } = useGifSearch(debouncedMessage);
+  const gifUrls = data?.urls ?? [];
+  const [gifIndex, setGifIndex] = useState(0);
+  const gifUrl = gifUrls[gifIndex % gifUrls.length] ?? "";
 
   const updateDraft = (field, value) => {
     setDraft({ ...draft, [field]: value });
@@ -55,6 +62,10 @@ export default function CreatePage() {
           />
         </div>
 
+        <button type="button" onClick={() => setGifIndex(gifIndex + 1)}>
+          Reload GIF
+        </button>
+
         <div>
           <label htmlFor="secretPrompt">Choose a prompt for secret: </label>
           <input
@@ -78,7 +89,7 @@ export default function CreatePage() {
         <button type="submit">Publish</button>
       </form>
 
-      <Preview {...draft} />
+      <Preview {...draft} gifUrl={gifUrl} />
     </div>
   );
 }
