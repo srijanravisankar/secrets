@@ -12,7 +12,13 @@ export default function UnlockPage() {
   const [password, setPassword] = useState("");
   const unlock = useUnlockSecret(id);
 
-  if (unlock.data) return <Preview {...unlock.data} />;
+  if (unlock.data) {
+    return (
+      <div className="h-screen">
+        <Preview {...unlock.data} />;
+      </div>
+    );
+  }
 
   if (isLoading) return <p>Loading...</p>;
   if (isError) return <p>{error.message}</p>;
