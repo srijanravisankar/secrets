@@ -36,5 +36,6 @@ npm install
 npm install @tanstack/react-query react-router-dom
 npm install -D tailwindcss @tailwindcss/vite`
 - [ ] Add `import tailwindcss from '@tailwindcss/vite'` in `vite.config.ts` and `@import "tailwindcss";` in `src/index.css`
-- [ ] Delete boilerplate code in `src/App.css`, `src/index.css` and `src/App.tsx`
+- [ ] Delete boilerplate code in `src/App.css`, `src/index.css`, `src/App.tsx` and `src/assets`
+- [ ] Put `VITE_API_BASE_URL=http://127.0.0.1:8000` in `.env`
 - [ ] Create required folders and files in `src`: `api`, `hooks`, `components`, `pages`, `types.ts`
