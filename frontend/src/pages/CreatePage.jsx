@@ -90,7 +90,9 @@ export default function CreatePage() {
           />
         </div>
 
-        <button type="submit">Publish</button>
+        <button type="submit" disabled={!gifUrl}>
+          Publish
+        </button>
       </form>
 
       {isPending && <p>Publishing...</p>}

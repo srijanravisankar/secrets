@@ -16,7 +16,10 @@ export async function apiRequest(path, options) {
 
   if (!response.ok) {
     const body = await response.json().catch(() => ({}));
-    throw new ApiError(response.status, body.detail ?? response.statusText);
+    const detail = Array.isArray(body.detail)
+      ? body.detail.map((d) => `${d.msg}`)
+      : body.detail;
+    throw new ApiError(response.status, detail ?? response.statusText);
   }
 
   return response.json();
