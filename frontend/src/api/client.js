@@ -11,7 +11,7 @@ export class ApiError extends Error {
 export async function apiRequest(path, options) {
   const response = await fetch(`${BASE_URL}${path}`, {
     ...options,
-    headers: { "Content-Type": "application/json" },
+    headers: { "Content-Type": "application/json", ...options?.headers },
   });
 
   if (!response.ok) {
