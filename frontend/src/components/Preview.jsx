@@ -7,9 +7,14 @@ export default function Preview({
   backgroundColour,
 }) {
   return (
-    <div style={{ backgroundColor: backgroundColour }}>
-      {gifUrl && <img src={gifUrl} alt="" />}
-      <p className={fontClasses[fontStyle]}>{secretMessage}</p>
+    <div
+      style={{ backgroundColor: backgroundColour }}
+      className="flex h-full w-full flex-col items-center justify-center gap-6 p-8"
+    >
+      {gifUrl && <img src={gifUrl} alt="" className="h-96 rounded-lg" />}
+      <p className={`${fontClasses[fontStyle]} text-center text-5xl`}>
+        {secretMessage}
+      </p>
     </div>
   );
 }
