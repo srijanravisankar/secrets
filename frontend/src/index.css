@@ -1,1 +1,7 @@
 @import "tailwindcss";
+
+@theme {
+  --font-handwriting: "Caveat", cursive;
+  --font-display: "Rum Raisin", cursive;
+  --font-henny-penny: "Henny Penny", cursive;
+}

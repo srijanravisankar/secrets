@@ -13,8 +13,9 @@ export default function CreatePage() {
     secretPassword: "",
   });
 
-  const debouncedMessage = useDebouncedValue(draft.secretMessage, 500);
-  const { data: gifData } = useGifSearch(debouncedMessage);
+  const [gifQuery, setGifQuery] = useState("");
+  const debouncedQuery = useDebouncedValue(gifQuery, 1500);
+  const { data: gifData } = useGifSearch(debouncedQuery);
   const gifUrls = gifData?.urls ?? [];
   const [gifIndex, setGifIndex] = useState(0);
   const gifUrl = gifUrls[gifIndex % gifUrls.length] ?? "";
@@ -66,6 +67,9 @@ export default function CreatePage() {
               <option value="serif">Serif</option>
               <option value="sans-serif">Sans-Serif</option>
               <option value="monospace">Monospace</option>
+              <option value="handwriting">Caveat</option>
+              <option value="rum-raisin">Rum Raisin</option>
+              <option value="henny-penny">Henny Penny</option>
             </select>
           </div>
 
@@ -85,13 +89,31 @@ export default function CreatePage() {
             />
           </div>
 
-          <button
-            type="button"
-            onClick={() => setGifIndex(gifIndex + 1)}
-            className="self-start rounded-md border border-gray-300 px-4 py-2 text-sm hover:bg-gray-50"
-          >
-            Reload GIF
-          </button>
+          <div className="flex flex-col gap-1">
+            <label
+              htmlFor="gifQuery"
+              className="text-sm font-medium text-gray-700"
+            >
+              GIF Search
+            </label>
+            <div className="flex gap-2">
+              <input
+                id="gifQuery"
+                type="text"
+                maxLength="20"
+                value={gifQuery}
+                onChange={(e) => setGifQuery(e.target.value)}
+                className="w-fit rounded-md border border-gray-300 px-3 py-2 focus:border-gray-900 focus:outline-none"
+              />
+              <button
+                type="button"
+                onClick={() => setGifIndex(gifIndex + 1)}
+                className="self-start rounded-md border border-gray-300 px-4 py-3 text-sm hover:bg-gray-50"
+              >
+                Reload GIF
+              </button>
+            </div>
+          </div>
 
           <div className="flex flex-col gap-1">
             <label
