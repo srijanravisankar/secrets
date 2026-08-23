@@ -21,5 +21,4 @@ def create_access_token(username: str) -> str:
 
 def decode_access_token(token: str) -> str:
     decoded_jwt = jwt.decode(token, JWT_SECRET, algorithms=[ALGORITHM])
-
     return decoded_jwt["sub"]
