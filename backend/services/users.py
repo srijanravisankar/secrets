@@ -13,7 +13,10 @@ def create_user(db: Session, user: UserCreateRequest) -> User:
     if username_exists:
         raise UsernameTakenError
 
-    new_user = User(username=user.username, password_hash=hash_password(user.password))
+    new_user = User(
+        username=user.username,
+        password_hash=hash_password(user.password),
+    )
 
     db.add(new_user)
     db.commit()
