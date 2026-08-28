@@ -37,3 +37,9 @@ def authenticate_user(db: Session, user: UserCreateRequest) -> User | None:
         return None
 
     return user_in_db
+
+
+def get_user_by_username(db: Session, username: str) -> User | None:
+    statement = select(User).where(User.username == username)
+    user = db.scalar(statement)
+    return user
