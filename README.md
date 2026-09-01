@@ -8,7 +8,7 @@ Compose a secret with a message, GIF and your own colors and typography. Share i
 
 ## Demo
 
-<!-- video to be uploaded -->
+https://github.com/user-attachments/assets/90921c0a-bcc3-40bd-8513-7c1db7a85df8
 
 ## How it works
 
